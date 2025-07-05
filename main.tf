@@ -1,6 +1,6 @@
 
 resource "azurerm_resource_group" "example" {
-  name     = "terraform-lab-rg2"
+  name     = "terraformlab-rg"
   location = "West US"
 
   tags = {
@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "example" {
 
 # Virtual Network Resource
 resource "azurerm_virtual_network" "main" {
-  name                = "terraform-lab-vnet2"
+  name                = "terraformlab-vnet2"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
@@ -34,7 +34,7 @@ resource "azurerm_subnet" "example2" {
 
 # Public IP Resource
 resource "azurerm_public_ip" "example" {
-  name                = "terraform-lab-pip2"
+  name                = "terraformlab-pip2"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   allocation_method   = "Static"
@@ -47,7 +47,7 @@ resource "azurerm_public_ip" "example" {
 
 # Network Interface Resource
 resource "azurerm_network_interface" "example" {
-  name                = "terraform-lab-nic2"
+  name                = "terraformlab-nic2"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "example" {
 
 # Network Security Group Resource
 resource "azurerm_network_security_group" "example" {
-  name                = "terraform-lab-nsg2"
+  name                = "terraformlab-nsg2"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
@@ -96,7 +96,7 @@ resource "azurerm_network_interface_security_group_association" "example" {
 # Virtual Machine Resource
 
 resource "azurerm_virtual_machine" "main" {
-  name                  = "terraform-lab-vm2"
+  name                  = "terraformlab-vm2"
   location              = azurerm_resource_group.example.location
   resource_group_name   = azurerm_resource_group.example.name
   network_interface_ids = [azurerm_network_interface.example.id]
